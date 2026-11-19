@@ -27,6 +27,8 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
+          # Test phase: every game unlocked on the site. Remove to restore the weekly drip release.
+          VITE_REVIEW_BUILD: '1'
       # SPA fallback for deep links on Pages.
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
